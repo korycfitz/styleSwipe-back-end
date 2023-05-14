@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 
 const Schema = mongoose.Schema
 
-const blogSchema = new Schema(
+const outfitSchema = new Schema(
   {
     photo: {
       type: String,
