@@ -2,6 +2,21 @@ import mongoose from 'mongoose'
 
 const Schema = mongoose.Schema
 
+const commentSchema = new Schema(
+  {
+    author: { type: Schema.Types.ObjectId, ref: 'Profile' },
+    content: {
+      type: String,
+      required: true
+    },
+    likes: { 
+      type: Boolean,
+      default: false
+    }
+  },
+  { timestamps: true }
+)
+
 const outfitSchema = new Schema(
   {
     photo: {
