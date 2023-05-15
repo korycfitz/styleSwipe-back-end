@@ -11,10 +11,10 @@ const router = Router()
 /*---------- Protected Routes ----------*/
 router.use(decodeUserFromToken)
 //index page will automatically redirect to '/:outfitId'
-router.get('/', checkAuth, outfitsCtrl.index) 
-router.get('/:outfitId', checkAuth, outfitsCtrl.show)
-router.post('/', checkAuth, outfitsCtrl.create)
-router.post('/:outfitId', checkAuth, outfitsCtrl.createComment)
-router.put('/:outfitId', checkAuth, outfitsCtrl.update)
+router.get('/', checkAuth, outfitsCtrl.index) //works
+router.get('/:outfitId', checkAuth, outfitsCtrl.show) //works
+router.post('/', checkAuth, outfitsCtrl.create) //works
+router.post('/:outfitId', checkAuth, outfitsCtrl.createComment) //works
+router.put('/:outfitId', checkAuth, outfitsCtrl.update) //works
 
 export { router }
