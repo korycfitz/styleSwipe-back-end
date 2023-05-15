@@ -16,5 +16,6 @@ router.get('/:outfitId', checkAuth, outfitsCtrl.show) //works
 router.post('/', checkAuth, outfitsCtrl.create) //works
 router.post('/:outfitId', checkAuth, outfitsCtrl.createComment) //works
 router.put('/:outfitId', checkAuth, outfitsCtrl.update) //works
+router.delete('/:outfitId', checkAuth, outfitsCtrl.delete)
 
 export { router }
