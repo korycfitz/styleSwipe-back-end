@@ -9,10 +9,7 @@ const commentSchema = new Schema(
       type: String,
       required: true
     },
-    likes: { 
-      type: Boolean,
-      default: false
-    }
+    likes: [{ type: Schema.Types.ObjectId, ref: 'Profile' }]
   },
   { timestamps: true }
 )
@@ -28,7 +25,7 @@ const outfitSchema = new Schema(
     },
     author: { type: Schema.Types.ObjectId, ref: 'Profile' },
     comments: [commentSchema],
-    swipes: { type: [Schema.Types.ObjectId], ref: 'Swipe'}
+    swipes: [{ type: Schema.Types.ObjectId, ref: 'Swipe'}]
   },
   { timestamps: true }
 )
