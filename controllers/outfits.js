@@ -17,3 +17,8 @@ async function create(req, res) {
     res.status(500).json(error)
   }
 }
+
+export {
+  create,
+}
+
