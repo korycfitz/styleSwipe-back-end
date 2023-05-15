@@ -90,7 +90,7 @@ async function deleteOutfit(req, res) {
 async function deleteComment(req, res) {
   try {
     const outfit = await Outfit.findById(req.params.outfitId)
-    outfit.comments.remove({ _id: req.params.commentId })
+    outfit.comments.remove({  _id: req.params.commentId })
     await outfit.save()
     res.status(200).json(outfit)
   } catch (error) {
