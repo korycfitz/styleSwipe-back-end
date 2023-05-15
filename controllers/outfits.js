@@ -67,5 +67,6 @@ export {
   create,
   index,
   show,
+  update,
   createComment,
 }
