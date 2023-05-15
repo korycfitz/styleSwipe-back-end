@@ -73,10 +73,24 @@ async function createComment(req, res) {
   }
 }
 
+async function deleteOutfit(req, res) {
+  try {
+    const outfit = await Outfit.findByIdAndDelete(req.params.outfitId)
+    const profile = await Profile.findById(req.user.profile)
+    profile.outfits.remove({_id: outfit._id})
+    await profile.save()
+    res.status(200).json(outfit)
+  } catch (error) {
+    console.log(error)
+    res.status(500).json(error)
+  }
+}
+
 export {
   create,
   index,
   show,
   update,
   createComment,
+  deleteOutfit as delete,
 }
