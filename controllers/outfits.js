@@ -11,7 +11,19 @@ async function create(req, res) {
       { new: true }
     )
     outfit.author = profile
-    res.status(201).json(blog)
+    res.status(201).json(outfit)
+  } catch (error) {
+    console.log(error)
+    res.status(500).json(error)
+  }
+}
+
+async function index(req, res) {
+  try {
+    const outfits = await Outfit.find({})
+      .populate('author')
+      .sort({ createdAt: 'desc' }) //will need to change how we display them
+      res.status(200).json(outfits)
   } catch (error) {
     console.log(error)
     res.status(500).json(error)
@@ -19,5 +31,6 @@ async function create(req, res) {
 }
 
 export {
-  create
+  create,
+  index,
 }
