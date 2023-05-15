@@ -11,6 +11,7 @@ const router = Router()
 /*---------- Protected Routes ----------*/
 router.use(decodeUserFromToken)
 router.get('/', checkAuth, outfitsCtrl.index)
+router.get('/:outfitId', checkAuth, outfitsCtrl.show)
 router.post('/', checkAuth, outfitsCtrl.create)
 
 export { router }
