@@ -88,22 +88,26 @@ async function deleteOutfit(req, res) {
 }
 
 async function deleteComment(req, res) {
+  req.body.author = req.user.profile
   try {
-    console.log(req.params)
-    // old declaration
-    // const comment = await Outfit.comments.findByIdAndDelete(req.params.commentId)
-    const outfit = await Outfit.findById(req.params.outfitId)
-    const profile = await Profile.findById(req.user.profile)
-    const comment = await Outfit.comments.forEach((ele) => {
-      ele.findById(req.params.commentId)
-    })
-    console.log(comment)
-    outfit.comments.remove({_id: comment._id})
-    await outfit.save()
-    res.status(200).json(comment)
-  }catch (error) {
-    console.log(error)
-    res.status(500).json(error)
+    const outfit = await Outfit.findByIdAndUpdate(
+      req.params.outfitId,
+      {
+        $pull: { comments: req.params.commentId },
+      },
+      { new: true }
+    );
+
+    if (!outfit) {
+      return res.status(400).send("Outfit not found");
+    }
+
+    await Comment.findByIdAndDelete(req.params.commentId);
+
+    res.send("Success");
+  } catch (err) {
+    console.log(err);
+    res.status(500).send("Something went wrong");
   }
 }
 
