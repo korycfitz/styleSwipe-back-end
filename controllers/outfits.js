@@ -77,10 +77,31 @@ async function deleteOutfit(req, res) {
   try {
     const outfit = await Outfit.findByIdAndDelete(req.params.outfitId)
     const profile = await Profile.findById(req.user.profile)
+    console.log(profile)
     profile.outfits.remove({_id: outfit._id})
     await profile.save()
     res.status(200).json(outfit)
   } catch (error) {
+    console.log(error)
+    res.status(500).json(error)
+  }
+}
+
+async function deleteComment(req, res) {
+  try {
+    console.log(req.params)
+    // old declaration
+    // const comment = await Outfit.comments.findByIdAndDelete(req.params.commentId)
+    const outfit = await Outfit.findById(req.params.outfitId)
+    const profile = await Profile.findById(req.user.profile)
+    const comment = await Outfit.comments.forEach((ele) => {
+      ele.findById(req.params.commentId)
+    })
+    console.log(comment)
+    outfit.comments.remove({_id: comment._id})
+    await outfit.save()
+    res.status(200).json(comment)
+  }catch (error) {
     console.log(error)
     res.status(500).json(error)
   }
@@ -93,4 +114,5 @@ export {
   update,
   createComment,
   deleteOutfit as delete,
+  deleteComment,
 }
