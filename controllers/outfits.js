@@ -30,7 +30,19 @@ async function index(req, res) {
   }
 }
 
+async function show (req, res) {
+  try {
+    const outfit = await Outfit.findById(req.params.outfitId)
+    .populate(['author', 'comments.author'])
+    res.status(200).json(outfit) //res.status for successful connec of outfitId
+  }catch (error) {
+    console.log(error)
+    res.status(500).json(error)
+  }
+}
+
 export {
   create,
   index,
+  show,
 }
