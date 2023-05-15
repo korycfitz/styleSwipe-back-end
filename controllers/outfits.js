@@ -41,6 +41,10 @@ async function show (req, res) {
   }
 }
 
+async function createComment(req, res) {
+
+}
+
 export {
   create,
   index,
