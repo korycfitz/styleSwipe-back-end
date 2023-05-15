@@ -42,7 +42,17 @@ async function show(req, res) {
 }
 
 async function update(req, res) {
-
+  try {
+    const outfit = await Outfit.findByIdAndUpdate(
+      req.params.outfitId,
+      req.body,
+      { new: true }
+    ).populate('author')
+    res.status(200).json(outfit)
+  } catch (error) {
+    console.log(error)
+    res.status(500).json(error)
+  }
 }
 
 async function createComment(req, res) {
