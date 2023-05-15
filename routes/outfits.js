@@ -1,3 +1,4 @@
+
 import { Router } from 'express'
 import * as outfitsCtrl from '../controllers/outfits.js'
 import { decodeUserFromToken, checkAuth } from '../middleware/auth.js'
