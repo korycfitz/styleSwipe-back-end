@@ -30,12 +30,26 @@ async function index(req, res) {
   }
 }
 
-async function show (req, res) {
+async function show(req, res) {
   try {
     const outfit = await Outfit.findById(req.params.outfitId)
     .populate(['author', 'comments.author'])
     res.status(200).json(outfit) //res.status for successful connec of outfitId
   }catch (error) {
+    console.log(error)
+    res.status(500).json(error)
+  }
+}
+
+async function update(req, res) {
+  try {
+    const outfit = await Outfit.findByIdAndUpdate(
+      req.params.outfitId,
+      req.body,
+      { new: true }
+    ).populate('author')
+    res.status(200).json(outfit)
+  } catch (error) {
     console.log(error)
     res.status(500).json(error)
   }
@@ -63,5 +77,6 @@ export {
   create,
   index,
   show,
+  update,
   createComment,
 }
