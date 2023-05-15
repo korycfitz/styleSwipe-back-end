@@ -42,11 +42,26 @@ async function show (req, res) {
 }
 
 async function createComment(req, res) {
+  try {
+    req.body.author = req.user.profile
+    const outfit = await Outfit.findById(req.params.outfitId)
+    outfit.comments.push(req.body)
+    await outfit.save()
 
+    const newComment = outfit.comments[outfit.comments.length - 1]
+    const profile = await Profile.findById(req.user.profile)
+    newComment.author = profile
+
+    res.status(201).json(newComment)
+  } catch (error) {
+    console.log(error)
+    res.status(500).json(error)
+  }
 }
 
 export {
   create,
   index,
   show,
+  createComment,
 }
