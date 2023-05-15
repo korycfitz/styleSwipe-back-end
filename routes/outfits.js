@@ -10,3 +10,5 @@ const router = Router()
 /*---------- Protected Routes ----------*/
 router.use(decodeUserFromToken)
 router.get('/', checkAuth, outfitsCtrl.index)
+
+export { router }
