@@ -19,6 +19,5 @@ async function create(req, res) {
 }
 
 export {
-  create,
+  create
 }
-
