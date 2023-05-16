@@ -1,4 +1,5 @@
 import { Profile } from "../models/profile.js"
+import { Outfit } from "../models/outfit.js"
 import { Swipe } from "../models/swipe.js"
 
 
