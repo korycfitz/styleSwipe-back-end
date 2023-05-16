@@ -14,4 +14,5 @@ router.get('/', checkAuth, swipesCtrl.index)
 router.get('/:swipeId', checkAuth, swipesCtrl.show)
 router.post('/', checkAuth, swipesCtrl.create)
 router.put('/:swipeId', checkAuth, swipesCtrl.update)
+
 export { router }
