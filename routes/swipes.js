@@ -12,6 +12,6 @@ router.use(decodeUserFromToken)
 router.get('/', checkAuth, swipesCtrl.index)
 router.get('/:swipeId', checkAuth, swipesCtrl.show)
 //not using for now, but building out front end so usage
-router.put('/:swipeId', checkAuth, swipesCtrl.update)
+// router.put('/:swipeId', checkAuth, swipesCtrl.update)
 
 export { router }
