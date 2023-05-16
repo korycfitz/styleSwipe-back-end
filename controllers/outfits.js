@@ -61,11 +61,9 @@ async function createComment(req, res) {
     const outfit = await Outfit.findById(req.params.outfitId)
     outfit.comments.push(req.body)
     await outfit.save()
-
     const newComment = outfit.comments[outfit.comments.length - 1]
     const profile = await Profile.findById(req.user.profile)
     newComment.author = profile
-
     res.status(201).json(newComment)
   } catch (error) {
     console.log(error)
@@ -77,7 +75,6 @@ async function deleteOutfit(req, res) {
   try {
     const outfit = await Outfit.findByIdAndDelete(req.params.outfitId)
     const profile = await Profile.findById(req.user.profile)
-    console.log(profile)
     profile.outfits.remove({_id: outfit._id})
     await profile.save()
     res.status(200).json(outfit)
