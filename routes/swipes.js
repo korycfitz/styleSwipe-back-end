@@ -1,4 +1,3 @@
-
 import { Router } from 'express'
 import * as swipesCtrl from '../controllers/swipes.js'
 import { decodeUserFromToken, checkAuth } from '../middleware/auth.js'
