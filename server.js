@@ -13,6 +13,7 @@ import { router as profilesRouter } from './routes/profiles.js'
 import { router as authRouter } from './routes/auth.js'
 import { router as outfitsRouter } from './routes/outfits.js'
 import { router as swipesRouter } from './routes/swipes.js'
+
 // create the express app
 const app = express()
 
