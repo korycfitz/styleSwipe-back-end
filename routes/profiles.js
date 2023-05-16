@@ -13,9 +13,10 @@ const router = Router()
 router.use(decodeUserFromToken)
 router.get('/', checkAuth, profilesCtrl.index)
 router.put('/:id/add-photo', checkAuth, profilesCtrl.addPhoto)
-router.get('/:userId/outfits', checkAuth, profilesCtrl.index)
-router.get('/:userId/outfits/:outfitId', checkAuth, profilesCtrl.show)
-router.get('/:userId/swipes', checkAuth, profilesCtrl.swipeIndex)
-router.get('/:userId/swipes/:swipeId', checkAuth, profilesCtrl.swipeShow)
+//new routes
+// router.get('/:userId/outfits', checkAuth, profilesCtrl.index) //we already have a profilesController.index
+// router.get('/:userId/outfits/:outfitId', checkAuth, profilesCtrl.show)
+// router.get('/:userId/swipes', checkAuth, profilesCtrl.swipeIndex)
+// router.get('/:userId/swipes/:swipeId', checkAuth, profilesCtrl.swipeShow)
 
 export { router }
