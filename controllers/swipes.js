@@ -8,7 +8,11 @@ async function create(req, res) {
     console.log(req.user)
     req.body.swipedBy = req.user.profile
     const swipe = await Swipe.create(req.body)
-    const outfit = await Outfit.findByIdAndUpdate(req.user.outfitId)
+    const outfit = await Outfit.findByIdAndUpdate(
+      req.params.outfitId,
+      { $push: { swipes: swipe } },
+      { new: true }
+      )
     // add outfit.swipes populating
     const profile = await Profile.findByIdAndUpdate(
       req.user.profile,
