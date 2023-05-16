@@ -40,7 +40,14 @@ async function index(req, res) {
 }
 
 async function show(req, res) {
-  
+  try {
+    const swipe = await Swipe.findById(req.params.swipeId)
+    .populate('swipedBy')
+    res.status(200).json(swipe) 
+  }catch (error) {
+    console.log(error)
+    res.status(500).json(error)
+  }
 }
 
 export {
