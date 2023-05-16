@@ -1,4 +1,3 @@
-
 import { Router } from 'express'
 import * as outfitsCtrl from '../controllers/outfits.js'
 import * as swipesCtrl from '../controllers/swipes.js'
