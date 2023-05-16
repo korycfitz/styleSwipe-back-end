@@ -11,7 +11,7 @@ async function create(req, res) {
     const outfit = await Outfit.findByIdAndUpdate(req.user.outfitId)
     const profile = await Profile.findByIdAndUpdate(
       req.user.profile,
-      { $push: { swipes: swipe } },
+      { $push: { mySwipes: swipe } },
       { new: true }
     )
     swipe.swipedBy = profile
