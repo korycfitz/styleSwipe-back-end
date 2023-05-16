@@ -29,7 +29,14 @@ async function update(req, res) {
 }
 
 async function index(req, res) {
-  
+  try {
+    const swipes = await Swipe.find({})
+    .sort({ createdAt: 'desc' })
+    res.status(200).json(swipes)
+  } catch (error) {
+    console.log(error)
+    res.status(500).json(error)
+  }
 }
 
 async function show(req, res) {
