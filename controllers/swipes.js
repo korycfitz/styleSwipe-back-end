@@ -19,7 +19,21 @@ async function create(req, res) {
   }
 }
 
+async function create(req, res) {
+
+}
+
+async function update(req, res) {
+  
+}
+
+async function show(req, res) {
+  
+}
 
 export {
-  create
+  create,
+  update,
+  index,
+  show,
 }
