@@ -1,4 +1,5 @@
 import { Profile } from '../models/profile.js'
+import { Outfit } from "../models/outfit.js"
 import { v2 as cloudinary } from 'cloudinary'
 
 async function index(req, res) {
@@ -30,8 +31,11 @@ async function addPhoto(req, res) {
 
 async function jumppage(req, res) {
   try {
-    console.log("ping for jumppage")
-    res.status(201).json("Success for jumppage")
+    const profile = await Profile.findById(req.user.profile)
+    console.log(profile)
+    // assuming NO information will need to be fed through here that isnt the user?
+    // please review later
+    res.status(201).json(profile)
   } catch (err) {
     console.log(err)
     res.status(500).json(err)
