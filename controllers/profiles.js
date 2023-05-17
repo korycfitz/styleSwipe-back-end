@@ -1,5 +1,6 @@
 import { Profile } from '../models/profile.js'
 import { Outfit } from "../models/outfit.js"
+import { Swipe } from "../models/swipe.js"
 import { v2 as cloudinary } from 'cloudinary'
 
 async function index(req, res) {
@@ -57,7 +58,6 @@ async function outfitIndex(req, res) { // WORKS
 
 async function outfitShow(req, res) { // WORKS
   try {
-    const profile = await Profile.findById(req.user.profile)
     const outfit = await Outfit.findById(req.params.outfitId)
     .populate(['author', 'comments.author'])
     res.status(201).json(outfit)
@@ -67,20 +67,21 @@ async function outfitShow(req, res) { // WORKS
   }
 }
 
-async function swipeIndex(req, res) {
+async function swipeIndex(req, res) { // WORKS
   try {
-    console.log("ping for swipeIndex")
-    res.status(201).json("Success for Swipe Index")
+    const profile = await Profile.findById(req.user.profile)
+    const swipes = await Swipe.find({ _id: profile.mySwipes })
+    res.status(201).json(swipes)
   } catch (err) {
     console.log(err)
     res.status(500).json(err)
   }
 }
 
-async function swipeShow(req, res) {
+async function swipeShow(req, res) { // WORKS
   try {
-    console.log("ping for swipeShow")
-    res.status(201).json("Success for Swipe Show")
+    const swipe = await Swipe.findById(req.params.swipeId)
+    res.status(201).json(swipe)
   } catch (err) {
     console.log(err)
     res.status(500).json(err)
