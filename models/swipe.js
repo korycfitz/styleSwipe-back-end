@@ -11,6 +11,10 @@ const swipeSchema = new Schema({
     type: String,
     default: 'noVote',
     enum:['slay', 'nay', 'noVote'],
+  },
+  outfit: {
+    type: Schema.Types.ObjectId,
+    ref: 'Outfit'
   }
 },{
   timestamps: true,

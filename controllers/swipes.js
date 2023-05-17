@@ -17,6 +17,7 @@ async function create(req, res) {
       { new: true }
     )
     swipe.swipedBy = profile
+    swipe.outfit = req.params.outfitId
     res.status(201).json(swipe)
   } catch (error) {
     console.log(error)
