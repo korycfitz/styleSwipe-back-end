@@ -44,8 +44,9 @@ async function jumppage(req, res) {
 
 async function outfitIndex(req, res) {
   try {
-    console.log("ping for outfitIndex")
-    res.status(201).json("Success for Outfit Index")
+    const profile = await Profile.findById(req.user.profile)
+    const outfits = await Outfit.findById(profile.outfits)
+    res.status(201).json(outfits)
   } catch (err) {
     console.log(err)
     res.status(500).json(err)
