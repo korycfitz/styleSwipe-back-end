@@ -30,7 +30,7 @@ async function addPhoto(req, res) {
 
 async function jumppage(req, res) {
   try {
-
+    console.log("ping for jumppage")
   } catch (err) {
     console.log(err)
     res.status(500).json(err)
@@ -39,7 +39,7 @@ async function jumppage(req, res) {
 
 async function outfitIndex(req, res) {
   try {
-
+    console.log("ping for outfitIndex")
   } catch (err) {
     console.log(err)
     res.status(500).json(err)
@@ -48,7 +48,7 @@ async function outfitIndex(req, res) {
 
 async function outfitShow(req, res) {
   try {
-
+    console.log("ping for outfitShow")
   } catch (err) {
     console.log(err)
     res.status(500).json(err)
@@ -57,7 +57,7 @@ async function outfitShow(req, res) {
 
 async function swipeIndex(req, res) {
   try {
-
+    console.log("ping for swipeIndex")
   } catch (err) {
     console.log(err)
     res.status(500).json(err)
@@ -66,7 +66,7 @@ async function swipeIndex(req, res) {
 
 async function swipeShow(req, res) {
   try {
-
+    console.log("ping for swipeShow")
   } catch (err) {
     console.log(err)
     res.status(500).json(err)
