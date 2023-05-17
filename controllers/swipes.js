@@ -17,7 +17,8 @@ async function create(req, res) {
       { new: true }
     )
     swipe.swipedBy = profile
-    swipe.outfit = req.params.outfitId
+    swipe.outfit = req.params.outfitId // Set the outfit property on the swipe object
+    await swipe.save() // Save the updated swipe object
     res.status(201).json(swipe)
   } catch (error) {
     console.log(error)
