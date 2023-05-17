@@ -14,9 +14,11 @@ router.use(decodeUserFromToken)
 router.get('/', checkAuth, profilesCtrl.index)
 router.put('/:id/add-photo', checkAuth, profilesCtrl.addPhoto)
 //new routes
-// router.get('/:userId/outfits', checkAuth, profilesCtrl.index) //we already have a profilesController.index
-// router.get('/:userId/outfits/:outfitId', checkAuth, profilesCtrl.show)
-// router.get('/:userId/swipes', checkAuth, profilesCtrl.swipeIndex)
-// router.get('/:userId/swipes/:swipeId', checkAuth, profilesCtrl.swipeShow)
+router.get('/:userId', checkAuth, profilesCtrl.jumppage)
+router.get('/:userId/outfits', checkAuth, profilesCtrl.index) // displays all user outfits
+router.get('/:userId/outfits/:outfitId', checkAuth, profilesCtrl.show) //play 1 user ouitfit
+router.get('/:userId/swipes', checkAuth, profilesCtrl.swipeIndex) // display all user swipes
+router.get('/:userId/swipes/:swipeId', checkAuth, profilesCtrl.swipeShow) //display 1 user swipe
+// router.put('/:userId/swipe/:swipeId'. checkAuth, profilesCtrl.swipeUpdate) //stretch
 
 export { router }
