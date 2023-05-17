@@ -42,10 +42,12 @@ async function jumppage(req, res) {
   }
 }
 
-async function outfitIndex(req, res) {
+async function outfitIndex(req, res) { // WORKS
   try {
     const profile = await Profile.findById(req.user.profile)
-    const outfits = await Outfit.findById(profile.outfits)
+    const outfits = await Outfit.find({ _id: profile.outfits })
+      .populate('author')
+      .sort({ createdAt: 'desc' })
     res.status(201).json(outfits)
   } catch (err) {
     console.log(err)
@@ -53,10 +55,12 @@ async function outfitIndex(req, res) {
   }
 }
 
-async function outfitShow(req, res) {
+async function outfitShow(req, res) { // WORKS
   try {
-    console.log("ping for outfitShow")
-    res.status(201).json("Success for Outfit Show")
+    const profile = await Profile.findById(req.user.profile)
+    const outfit = await Outfit.findById(req.params.outfitId)
+    .populate(['author', 'comments.author'])
+    res.status(201).json(outfit)
   } catch (err) {
     console.log(err)
     res.status(500).json(err)
