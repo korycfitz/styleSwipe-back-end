@@ -28,4 +28,57 @@ async function addPhoto(req, res) {
   }
 }
 
-export { index, addPhoto }
+async function jumppage(req, res) {
+  try {
+
+  } catch (err) {
+    console.log(err)
+    res.status(500).json(err)
+  }
+}
+
+async function outfitIndex(req, res) {
+  try {
+
+  } catch (err) {
+    console.log(err)
+    res.status(500).json(err)
+  }
+}
+
+async function outfitShow(req, res) {
+  try {
+
+  } catch (err) {
+    console.log(err)
+    res.status(500).json(err)
+  }
+}
+
+async function swipeIndex(req, res) {
+  try {
+
+  } catch (err) {
+    console.log(err)
+    res.status(500).json(err)
+  }
+}
+
+async function swipeShow(req, res) {
+  try {
+
+  } catch (err) {
+    console.log(err)
+    res.status(500).json(err)
+  }
+}
+
+export { 
+  index,
+  addPhoto,
+  jumppage,
+  outfitIndex,
+  outfitShow,
+  swipeIndex,
+  swipeShow,
+}
