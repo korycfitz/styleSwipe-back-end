@@ -14,7 +14,7 @@ router.use(decodeUserFromToken)
 router.get('/', checkAuth, profilesCtrl.index)
 router.put('/:id/add-photo', checkAuth, profilesCtrl.addPhoto)
 //new routes
-router.get('/:userId', checkAuth, profilesCtrl.jumppage)
+router.get('/:userId', checkAuth, profilesCtrl.jumpPage)
 router.get('/:userId/outfits', checkAuth, profilesCtrl.outfitIndex) // displays all user outfits
 router.put('/:userId/outfits/edit', checkAuth, outfitsCtrl.update) //works
 router.get('/:userId/outfits/:outfitId', checkAuth, profilesCtrl.outfitShow) //play 1 user ouitfit

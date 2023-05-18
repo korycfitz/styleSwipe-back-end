@@ -30,7 +30,7 @@ async function addPhoto(req, res) {
   }
 }
 
-async function jumppage(req, res) {
+async function jumpPage(req, res) {
   try {
     const profile = await Profile.findById(req.user.profile)
     console.log(profile)
@@ -91,7 +91,7 @@ async function swipeShow(req, res) { // WORKS
 export { 
   index,
   addPhoto,
-  jumppage,
+  jumpPage,
   outfitIndex,
   outfitShow,
   swipeIndex,

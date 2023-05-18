@@ -12,8 +12,8 @@ router.use(decodeUserFromToken)
 //index page will automatically redirect to '/:outfitId'
 router.get('/', checkAuth, outfitsCtrl.index) //works
 router.get('/', checkAuth, outfitsCtrl.show) //works
-router.post('/:outfitId/swipes', checkAuth, swipesCtrl.create)
 router.post('/new', checkAuth, outfitsCtrl.create) //works
+router.post('/:outfitId/swipes', checkAuth, swipesCtrl.create)
 router.post('/', checkAuth, outfitsCtrl.createComment) //works
 router.delete('/:outfitId', checkAuth, outfitsCtrl.delete)
 router.delete('/:outfitId/:commentId', checkAuth, outfitsCtrl.deleteComment)
