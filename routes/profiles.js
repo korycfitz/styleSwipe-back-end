@@ -16,6 +16,7 @@ router.put('/:id/add-photo', checkAuth, profilesCtrl.addPhoto)
 //new routes
 router.get('/:userId', checkAuth, profilesCtrl.jumppage)
 router.get('/:userId/outfits', checkAuth, profilesCtrl.outfitIndex) // displays all user outfits
+router.put('/:userId/outfits/edit', checkAuth, outfitsCtrl.update) //works
 router.get('/:userId/outfits/:outfitId', checkAuth, profilesCtrl.outfitShow) //play 1 user ouitfit
 router.get('/:userId/swipes', checkAuth, profilesCtrl.swipeIndex) // display all user swipes
 router.get('/:userId/swipes/:swipeId', checkAuth, profilesCtrl.swipeShow) //display 1 user swipe
