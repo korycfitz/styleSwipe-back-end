@@ -10,7 +10,7 @@ const swipeSchema = new Schema({
   swipe: {
     type: String,
     default: 'noVote',
-    enum:['slay', 'nay', 'noVote'],
+    enum: ['slay', 'nay', 'noVote'],
   },
   outfit: {
     type: Schema.Types.ObjectId,
