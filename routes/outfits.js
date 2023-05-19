@@ -15,7 +15,7 @@ router.get('/', checkAuth, outfitsCtrl.index) //works
 router.get('/:outfitId', checkAuth, outfitsCtrl.show) //works
 router.post('/', checkAuth, outfitsCtrl.create) //works
 router.post('/:outfitId/comments', checkAuth, outfitsCtrl.createComment) //works
-router.put('/:userId/comments', checkAuth, outfitsCtrl.update) //works
+router.put('/:outfitId', checkAuth, outfitsCtrl.update) //works
 router.delete('/:outfitId', checkAuth, outfitsCtrl.delete)
 //will be implementing when swipe funcitionality is implemented on front end 
 // router.post('/:outfitId/swipes', checkAuth, swipesCtrl.create)

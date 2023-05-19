@@ -20,13 +20,13 @@ async function create(req, res) {
 
 async function index(req, res) {
   try {
-    const outfits = await Outfit.find({})/*.limit(1)*/
+    const outfits = await Outfit.find({})
       .populate('author')
       .sort({ createdAt: 'desc' }) //will need to change how we display them
       res.status(200).json(outfits)
   } catch (error) {
     console.log(error)
-    res.status(500).json(error)
+    res.status(500).json(error) 
   }
 }
 
