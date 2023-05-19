@@ -20,6 +20,6 @@ router.delete('/:outfitId', checkAuth, outfitsCtrl.delete)
 //will be implementing when swipe funcitionality is implemented on front end 
 // router.post('/:outfitId/swipes', checkAuth, swipesCtrl.create)
 //will be implementing when delete comment functionality is availale on front end
-// router.delete('/:outfitId/:commentId', checkAuth, outfitsCtrl.deleteComment)
+router.delete('/:outfitId/:commentId', checkAuth, outfitsCtrl.deleteComment)
 
 export { router } 
