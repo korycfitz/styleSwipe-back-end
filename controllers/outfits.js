@@ -21,9 +21,9 @@ async function create(req, res) {
 async function index(req, res) {
   try {
     const outfits = await Outfit.find({})
-      .populate('author')
-      .sort({ createdAt: 'desc' }) //will need to change how we display them
-      res.status(200).json(outfits)
+    .populate('author')
+    .sort({ createdAt: 'desc' })
+    res.status(200).json(outfits)
   } catch (error) {
     console.log(error)
     res.status(500).json(error) 
@@ -34,7 +34,7 @@ async function show(req, res) {
   try {
     const outfit = await Outfit.findById(req.params.outfitId)
     .populate(['author', 'comments.author'])
-    res.status(200).json(outfit) //res.status for successful connec of outfitId
+    res.status(200).json(outfit)
   }catch (error) {
     console.log(error)
     res.status(500).json(error)

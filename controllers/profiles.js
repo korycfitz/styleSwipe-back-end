@@ -33,9 +33,6 @@ async function addPhoto(req, res) {
 async function jumpPage(req, res) {
   try {
     const profile = await Profile.findById(req.user.profile)
-    console.log(profile)
-    // assuming NO information will need to be fed through here that isnt the user?
-    // please review later
     res.status(201).json(profile)
   } catch (err) {
     console.log(err)
@@ -43,12 +40,12 @@ async function jumpPage(req, res) {
   }
 }
 
-async function outfitIndex(req, res) { // WORKS
+async function outfitIndex(req, res) {
   try {
     const profile = await Profile.findById(req.user.profile)
     const outfits = await Outfit.find({ _id: profile.outfits })
-      .populate('author')
-      .sort({ createdAt: 'desc' })
+    .populate('author')
+    .sort({ createdAt: 'desc' })
     res.status(201).json(outfits)
   } catch (err) {
     console.log(err)
@@ -56,7 +53,7 @@ async function outfitIndex(req, res) { // WORKS
   }
 }
 
-async function outfitShow(req, res) { // WORKS
+async function outfitShow(req, res) {
   try {
     const outfit = await Outfit.findById(req.params.outfitId)
     .populate(['author', 'comments.author'])
@@ -67,7 +64,7 @@ async function outfitShow(req, res) { // WORKS
   }
 }
 
-async function swipeIndex(req, res) { // WORKS
+async function swipeIndex(req, res) {
   try {
     const profile = await Profile.findById(req.user.profile)
     const swipes = await Swipe.find({ _id: profile.mySwipes })
@@ -78,7 +75,7 @@ async function swipeIndex(req, res) { // WORKS
   }
 }
 
-async function swipeShow(req, res) { // WORKS
+async function swipeShow(req, res) {
   try {
     const swipe = await Swipe.findById(req.params.swipeId)
     res.status(201).json(swipe)
