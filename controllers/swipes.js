@@ -17,8 +17,8 @@ async function create(req, res) {
       { new: true }
     )
     swipe.swipedBy = profile
-    swipe.outfit = req.params.outfitId // Set the outfit property on the swipe object
-    await swipe.save() // Save the updated swipe object
+    swipe.outfit = req.params.outfitId
+    await swipe.save()
     res.status(201).json(swipe)
   } catch (error) {
     console.log(error)
@@ -65,7 +65,7 @@ async function show(req, res) {
 
 export {
   create,
-  // not using update functionality for now, but will build out the front end for future use. Controller function works and tested with postman.
+  // For future use: not using update functionality for now, but will build out the front end. Controller function works for update - tested with postman.
   // update,
   index,
   show,
